@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://localhost/rainbow?characterEncoding=utf-8&useSSL=false
+
+server:
+  context-path: /
+  port: 8080
+
+wechat:
+  mpAppId: wxbc12b25a14f84de6
+  mpAppSecret: 3cb6f2aab41036f8fef367c7b938ad41
+
+
+projectUrl:
+  wechatMpAuthorize: http://rainbow.jhonrain.org
+  wechatOpenAuthorize: http://rainbow.jhonrain.org

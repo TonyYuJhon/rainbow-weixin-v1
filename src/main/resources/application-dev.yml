@@ -1,0 +1,61 @@
+server:
+  context-path: /
+  port: 8080
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://localhost/rainbow?characterEncoding=utf-8&useSSL=false
+  druid:
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    filters: stat,wall,log4j
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+  redis:
+    host: localhost
+    port: 6379
+    timeout: 6000
+    pool:
+      max-active: 3
+
+
+mybatis:
+  type-aliases-package: com.jhon.wx.entity
+  config-locations: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+
+pagehelper:
+  auto-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: countSql
+
+wechat:
+  mpAppId: xxxxx
+  mpAppSecret: xxxxxxxxxx
+  mpToken: xxxx
+  mpAesKey: xxxxxxxxxxxx
+
+  openAppId: xxxxx
+  openAppSecret: xxxxxxxxxxxxxxxx
+  openToken: xxxxxx
+  openAesKey: xxxxxxxxxxxxxx
+
+projectUrl:
+  wechatMpAuthorize: http://rainbow.tunnel.echomod.cn
+  wechatOpenAuthorize: http://rainbow.tunnel.echomod.
+
+
+

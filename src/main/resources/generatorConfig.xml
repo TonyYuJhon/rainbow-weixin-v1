@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <classPathEntry location="E:/IdeaWork/rainbow/src/main/resources/doc/mysql-connector-java-5.1.44.jar"></classPathEntry>
+
+    <context id="MysqlTables" targetRuntime="MyBatis3">
+
+        <commentGenerator>
+            <property name="suppressDate" value="true"></property>
+            <property name="suppressAllComments" value="true"></property>
+        </commentGenerator>
+
+        <jdbcConnection
+                driverClass="com.mysql.jdbc.Driver"
+                connectionURL="jdbc:mysql://localhost/rainbow?characterEncoding=utf-8&amp;useSSL=false"
+                userId="root"
+                password="root">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"></property>
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="com.jhon.wx.model" targetProject="src/main/java">
+            <property name="enableSubPackages" value="false"></property>
+            <property name="constructorBased" value="true"></property>
+            <property name="trimStrings" value="true"></property>
+            <property name="immutable" value="false"></property>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="com.jhon.wx.mapper" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="false"></property>
+        </sqlMapGenerator>
+
+        <!--<javaClientGenerator targetPackage="com.jhon.wx.dao" targetProject="src/main/java" type="ANNOTATEDMAPPER">
+            <property name="enableSubPackages" value="true"></property>
+        </javaClientGenerator>-->
+
+        <javaClientGenerator targetPackage="com.jhon.wx.dao" targetProject="src/main/java" type="XMLMAPPER">
+            <property name="enableSubPackages" value="true"></property>
+        </javaClientGenerator>
+
+        <table tableName="t_wechat_user" domainObjectName="WechatUserDO"></table>
+    </context>
+</generatorConfiguration>
